@@ -13,25 +13,25 @@ const GuniDiscoverPage = (props:any) => {
 		{
 			day: "Mon",
 			date: "18 Sept",
-			desc: "60 Requests",
+			desc: "60 Accepted",
 			frog: Frog
 		},
 		{
 			day: "Tue",
 			date: "19 Sept",
-			desc: "60 Requests",
+			desc: "60 Accepted",
 			frog: Frog1
 		},
 		{
 			day: "Wed",
 			date: "20 Sept",
-			desc: "60 Requests",
+			desc: "60 Accepted",
 			frog: Frog2
 		},
 		{
 			day: "Thu",
 			date: "21 Sept",
-			desc: "60 Requests",
+			desc: "60 Accepted",
 			frog: Frog
 		}
 	]
@@ -39,6 +39,7 @@ const GuniDiscoverPage = (props:any) => {
 	// const date = new Date("08/09/2012");
 	// const fullDate = date.toLocaleString('default', {day:'numeric', month: 'short'});
 	// const day = date.toLocaleString('default', {weekday:'short'});
+
 
 	return (
 		<div className={`${styles.homePage} page-container`}>
