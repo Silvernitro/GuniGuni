@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-
-    Icon,
-    Sidebar,
-  } from 'semantic-ui-react'
+import { Icon, Sidebar } from 'semantic-ui-react';
 
 /* Styles */
 import styles from './index.module.scss';
