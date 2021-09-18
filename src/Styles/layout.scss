@@ -10,6 +10,21 @@
 	}
 }
 
+// rounded white background
+.page-background {
+	background-color: white;
+	height: 90%;
+	width: 100%;
+	margin: 20px;
+	margin-top: 35px;
+	padding: 20px;
+	border-radius: 12px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .navigation-container {
 	max-width: 108rem;
 	margin: 0 auto;
