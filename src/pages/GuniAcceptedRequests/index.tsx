@@ -1,50 +1,48 @@
 import React from 'react';
-// import RecyclingManVector from '../../Assets/VectorMan.png';
-// import Button from '../../components/Button';
+import { Loader } from 'semantic-ui-react';
 import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 import DayCard from '../../components/DayCard';
 import Frog from '../../Assets/Frog.png';
 import Frog1 from '../../Assets/Frog2.png';
 import Frog2 from '../../Assets/Frog3.png';
+import Backend from '../../backend/firebase';
+
 
 const GuniAcceptedRequests = (props:any) => {
-	const days = [
-		{
-			day: "Mon",
-			date: "18 Sept",
-			desc: "60 Accepted",
-			frog: Frog
-		},
-		{
-			day: "Tue",
-			date: "19 Sept",
-			desc: "60 Accepted",
-			frog: Frog1
-		},
-		{
-			day: "Wed",
-			date: "20 Sept",
-			desc: "60 Accepted",
-			frog: Frog2
-		},
-		{
-			day: "Thu",
-			date: "21 Sept",
-			desc: "60 Accepted",
-			frog: Frog
+	const [days, setDays] = React.useState<any[]>([]);
+	const frogs = [Frog, Frog1, Frog2, Frog, Frog1]	
+	React.useEffect(() => {
+		const fetch = async () => {
+			const daysArr = [];
+			const currentDate = new Date();
+			let dates:any[] = [new Date()];
+			for (let i = 0; i <= 3; i++) {
+				const newDate = currentDate.setDate(currentDate.getDate() + 1);
+				dates = [...dates, new Date(newDate)];
+			}
+			const res:any = await Backend.getNumberOfRequest(dates, 'Accepted');			
+			for (let i = 0; i <=4; i++) {
+				const day:any = {
+					day: dates[i].toLocaleString('default', {weekday:'short'}),
+					date: dates[i].toLocaleString('default', {day:'numeric', month: 'short'}),
+					desc: `${res[i]} requests available`,
+					frog: frogs[i]
+				}
+				daysArr.push(day);
+			}
+			setDays(daysArr);
 		}
-	]
 
-	// const date = new Date("08/09/2012");
-	// const fullDate = date.toLocaleString('default', {day:'numeric', month: 'short'});
-	// const day = date.toLocaleString('default', {weekday:'short'});
+		fetch();
+	}, [])
 
 	return (
 		<div className={`${styles.accepted} page-container`}>
 			<Nav/>
 			<div className={`page-background`}>
 				<h1 className={styles.title}> Your Accepted Requests </h1>
+				{days.length === 0 && <Loader active/>}
 				<div className={styles.requestDates}>
 				{days.map((day:any) => {
 					return (

@@ -12,13 +12,14 @@ const SG = {
 }
 
 interface Props {
-  blocks: any
+  blocks: any;
+  isAccepted?: boolean;
 }
 
 
 const Map = (props:Props) => {
     // eslint-disable-next-line no-var
-    const { blocks } = props;
+    const { blocks, isAccepted } = props;
     const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
     const [displayedBlockRequests, setDisplayedBlockRequests] = React.useState<any[]>([])
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -64,7 +65,8 @@ const Map = (props:Props) => {
 	return (
         <div>
             {map}
-            <BlockAvailabilityPopup units={displayedBlockRequests} isOpen={isPopupOpen} setOpen = {setPopupOpen}/>
+            <BlockAvailabilityPopup units={displayedBlockRequests} isOpen={isPopupOpen} 
+            setOpen = {setPopupOpen} isAccepted={isAccepted}/>
         </div>
 	);
 };
