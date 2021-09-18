@@ -1,11 +1,10 @@
 import {
 	collection,
-	query,
-	where,
 	getDocs,
 	deleteDoc,
 	doc,
-	addDoc
+	addDoc,
+	updateDoc
 } from 'firebase/firestore';
 import db from '../firebase';
 
@@ -42,7 +41,8 @@ const repackagedRequestResponse = (arr) => {
 		const newReq = {
 			unitNumber: req.unitNum,
 			timeSlots: req.timeSlots.map((start) => toTimeSlot(start)),
-			garangGuniId: req.garangGuniId
+			garangGuniId: req.garangGuniId,
+			requestId: req.id
 		};
 
 		if (exist) {
@@ -62,6 +62,18 @@ const repackagedRequestResponse = (arr) => {
 	return newArr;
 };
 
+const validateConsumerRequest = (request, options) => {
+	let validation = true;
+	if (options) {
+		Object.entries(options).forEach(([key, value]) => {
+			if (value !== request[key]) {
+				validation = false;
+			}
+		});
+	}
+	return validation;
+};
+
 class Backend {
 	static createConsumerRequest = async (payload) => {
 		try {
@@ -74,7 +86,8 @@ class Backend {
 
 					date: payload.date
 						? new Date(payload.date).toDateString()
-						: new Date().toDateString()
+						: new Date().toDateString(),
+					status: 'Not Accepted'
 				}
 			};
 			const doc = await addDoc(collection(db, 'request'), newPayload);
@@ -85,17 +98,13 @@ class Backend {
 		}
 	};
 
-	static getConsumerRequests = async (consumerId) => {
+	static getConsumerRequests = async (options) => {
 		const consumerRequests = [];
 		try {
-			const consumerRequestQuery = query(
-				collection(db, 'request'),
-				where('consumerId', '==', consumerId)
-			);
-
-			const querySnapshot = await getDocs(consumerRequestQuery);
-			querySnapshot.forEach((doc) => {
+			const allRequests = await getDocs(collection(db, 'request'));
+			allRequests.forEach((doc) => {
 				const data = doc.data();
+				if (!validateConsumerRequest(data, options)) return;
 				data.id = doc.id;
 				data.coordinate = JSON.parse(data.coordinate);
 				consumerRequests.push(data);
@@ -103,62 +112,75 @@ class Backend {
 		} catch (error) {
 			console.error('Error getting document: ', error);
 		}
-		return consumerRequests;
+
+		if (options && 'consumerId' in options) {
+			return consumerRequests;
+		}
+		return repackagedRequestResponse(consumerRequests);
 	};
 
-	static getGuniRequest = async (guniId, status) => {
-		const acceptedRequests = [];
+	static updateConsumerRequest = async (requestId, payload) => {
 		try {
-			const acceptedQuery = query(
-				collection(db, 'request'),
-				where('garangGuniId', '==', guniId)
-			);
-			const querySnapshot = await getDocs(acceptedQuery);
-			querySnapshot.forEach((doc) => {
-				const data = doc.data();
-				data.id = doc.id;
-				data.coordinate = JSON.parse(data.coordinate);
-				acceptedRequests.push(data);
-			});
+			await updateDoc(doc(db, 'request', requestId), payload);
+			return true;
 		} catch (error) {
 			console.error('Error getting document: ', error);
+			return false;
 		}
-		if (status) {
-			acceptedRequests.filter((req) => req.status === status);
-		}
-		return repackagedRequestResponse(acceptedRequests);
 	};
 
-	static deleteConsumerRequest = async (docId) => {
+	static deleteConsumerRequest = async (requestId) => {
 		try {
-			await deleteDoc(doc(db, 'request', docId));
+			await deleteDoc(doc(db, 'request', requestId));
 			return true;
 		} catch (error) {
 			console.error('Error deleting document: ', error);
 			return false;
 		}
 	};
-
-	static getConsumerRequestsFilterByDate = async (date) => {
-		const consumerRequests = [];
-		try {
-			const consumerRequestQuery = query(
-				collection(db, 'request'),
-				where('date', '==', date)
-			);
-			const querySnapshot = await getDocs(consumerRequestQuery);
-			querySnapshot.forEach((doc) => {
-				const data = doc.data();
-				data.id = doc.id;
-				data.coordinate = JSON.parse(data.coordinate);
-				consumerRequests.push(data);
-			});
-		} catch (error) {
-			console.error('Error deleting document: ', error);
-		}
-
-		return repackagedRequestResponse(consumerRequests);
-	};
 }
 
 export default Backend;
+// static getConsumerRequestsFilterByDate = async (date) => {
+// 	const consumerRequests = [];
+// 	try {
+// 		const consumerRequestQuery = query(
+// 			collection(db, 'request'),
+// 			where('date', '==', new Date(date).toDateString())
+// 		);
+// 		const querySnapshot = await getDocs(consumerRequestQuery);
+// 		querySnapshot.forEach((doc) => {
+// 			const data = doc.data();
+// 			data.id = doc.id;
+// 			data.coordinate = JSON.parse(data.coordinate);
+// 			consumerRequests.push(data);
+// 		});
+// 	} catch (error) {
+// 		console.error('Error deleting document: ', error);
+// 	}
+
+// 	return repackagedRequestResponse(consumerRequests);
+// };
+
+// static getGuniRequest = async (guniId, status) => {
+// 	const acceptedRequests = [];
+// 	try {
+// 		const acceptedQuery = query(
+// 			collection(db, 'request'),
+// 			where('garangGuniId', '==', guniId)
+// 		);
+// 		const querySnapshot = await getDocs(acceptedQuery);
+// 		querySnapshot.forEach((doc) => {
+// 			const data = doc.data();
+// 			data.id = doc.id;
+// 			data.coordinate = JSON.parse(data.coordinate);
+// 			acceptedRequests.push(data);
+// 		});
+// 	} catch (error) {
+// 		console.error('Error getting document: ', error);
+// 	}
+// 	if (status) {
+// 		acceptedRequests.filter((req) => req.status === status);
+// 	}
+// 	return repackagedRequestResponse(acceptedRequests);
+// };
