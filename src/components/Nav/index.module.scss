@@ -1,0 +1,34 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.nav {
+    width: 100%;
+    background: $grey_0;
+    position: absolute;
+    padding: 2rem 1rem;
+    left: 0;
+    top: 0;
+}
+
+.navOption {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5rem;
+    border-bottom: 1px solid $green_3;
+
+    .navText {
+        color: $grey_7;
+        font-size: $fontsize_subtitle_20;
+    }
+
+    .icon {
+        margin-top: -8px;
+        margin-right: 5px;
+        color: #8CD69E;
+        font-size: 18px;
+        padding: 0;
+    }
+}
