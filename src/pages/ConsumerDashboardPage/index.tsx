@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Loader } from 'semantic-ui-react';
 import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 import Button from '../../components/Button';
@@ -114,6 +115,7 @@ const ConsumerDashboardPage = () => {
 					className={styles.addButton}
 					onClick={() => setModalOpen(true)}
 				/>
+				{refreshing && <Loader active />}
 				{requests.map(renderCard)}
 			</div>
 			<PickUpCreationModal
