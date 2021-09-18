@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 import Button from '../../components/Button';
 import ExpandableCard from '../../components/ExpandableCard';
+import PickUpCreationModal from '../../components/PickUpCreationModal';
 
 export enum RequestStatus {
 	Accepted = 'Accepted',
@@ -17,6 +18,8 @@ export interface IRequest {
 }
 
 const ConsumerDashboard = () => {
+	const [isModalOpen, setModalOpen] = useState(false);
+
 	const dummyData: IRequest[] = [
 		{
 			date: '21st sept 2021',
@@ -84,9 +87,14 @@ const ConsumerDashboard = () => {
 					size="medium"
 					title="Create a new request"
 					className={styles.addButton}
+					onClick={() => setModalOpen(true)}
 				/>
 				{dummyData.map(renderCard)}
 			</div>
+			<PickUpCreationModal
+				open={isModalOpen}
+				handleClose={() => setModalOpen(false)}
+			/>
 		</div>
 	);
 };

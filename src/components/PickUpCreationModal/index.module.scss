@@ -1,0 +1,88 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.modalContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.formContainer {
+	background-color: $green_5;
+
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+	position: relative;
+
+	width: 90vw;
+	padding: 12px;
+	border-radius: 12px;
+}
+
+.formLabel {
+	color: white;
+	margin: 6px 0px;
+}
+
+.textInput {
+	width: 100%;
+	padding: 8px;
+	border: none;
+	border-radius: 6px;
+}
+
+.locationResults {
+	position: absolute;
+	z-index: 1;
+	background-color: white;
+	color: black;
+}
+
+.locationResult {
+	width: 100%;
+	border-bottom: 1px solid $grey_3;
+	padding: 12px 0px;
+}
+
+.timeSlotsContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.timeSlot {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 120px;
+	padding: 12px 0px;
+	margin: 4px 0px;
+	border-radius: 4px;
+	background-color: white;
+}
+
+.timeSlotSelected {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 120px;
+	padding: 12px 0px;
+	margin: 4px 0px;
+	border-radius: 4px;
+	background-color: $green_3;
+	color: white;
+}
+
+.dateContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 0px 24px;
+}
+
+.submitButton {
+	color: black;
+	margin-top: 20px;
+}
