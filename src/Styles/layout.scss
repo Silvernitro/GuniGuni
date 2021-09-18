@@ -1,12 +1,12 @@
 /* Layout Guide */
 .page-container {
-	width: 110vw;
+	width: 100vw;
 	height: 100vh;
-	margin-left: 8rem;
+	padding-left: 10rem;
 	position: relative;
 	@media only screen and(max-width: 1080px) {
 		width: 100vw;
-		margin: 0 auto;
+		padding: 0;
 	}
 }
 
