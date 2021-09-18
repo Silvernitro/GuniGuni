@@ -10,22 +10,11 @@ import Button from '../Button';
 interface Props {
     setOpen: (status: boolean) => void;
     isOpen: boolean;
+    units: any[];
 }
 
-const units = [
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-    {unitNumber: "#10-123", timeStamps : ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-]
-
 const BlockAvailabilityPopup = (props:Props) => {
-    const {isOpen, setOpen} = props;
+    const {isOpen, setOpen, units} = props;
 		return (
         <>
             <Sidebar
@@ -45,7 +34,7 @@ const BlockAvailabilityPopup = (props:Props) => {
                         <div className="unit">
                             <p className="unitNumber"> {unit.unitNumber}: Electronics</p>
                             <div className="timestamps">
-                                {unit.timeStamps.map((timestamp) => {
+                                {unit.timeSlots.map((timestamp: any) => {
                                     const [isAccepting, setAccepting] = React.useState<boolean>(false);
                                     return (
                                         !isAccepting ?
@@ -58,12 +47,12 @@ const BlockAvailabilityPopup = (props:Props) => {
                                         />
                                         :
                                         <Button 
-                                        className="animate__animated animate__zoomIn animate__faster"
-                                        type='primary' 
-                                        color='green' 
-                                        size='small' 
-                                        title="Accept"
-                                        onClick={() => setAccepting(false)}
+                                            className="animate__animated animate__zoomIn animate__faster"
+                                            type='primary' 
+                                            color='green' 
+                                            size='small' 
+                                            title="Accept"
+                                            onClick={() => setAccepting(false)}
                                         />
                                     );
                                 })}

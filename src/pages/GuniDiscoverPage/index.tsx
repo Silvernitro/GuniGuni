@@ -8,33 +8,34 @@ import Frog from '../../Assets/Frog.png';
 import Frog1 from '../../Assets/Frog2.png';
 import Frog2 from '../../Assets/Frog3.png';
 
-const GuniDiscoverPage = () => {
-	const requests = [
+const GuniDiscoverPage = (props:any) => {
+	const days = [
 		{
 			day: "Mon",
-			date: "9 Aug",
+			date: "18 Sept",
 			desc: "60 Requests",
 			frog: Frog
 		},
 		{
 			day: "Tue",
-			date: "10 Aug",
+			date: "19 Sept",
 			desc: "60 Requests",
 			frog: Frog1
 		},
 		{
 			day: "Wed",
-			date: "9 Aug",
+			date: "20 Sept",
 			desc: "60 Requests",
 			frog: Frog2
 		},
 		{
 			day: "Thu",
-			date: "9 Aug",
+			date: "21 Sept",
 			desc: "60 Requests",
 			frog: Frog
 		}
 	]
+
 	// const date = new Date("08/09/2012");
 	// const fullDate = date.toLocaleString('default', {day:'numeric', month: 'short'});
 	// const day = date.toLocaleString('default', {weekday:'short'});
@@ -45,13 +46,14 @@ const GuniDiscoverPage = () => {
 			<div className={`page-background`}>
 				<h1 className={styles.title}> Requests near you </h1>
 				<div className={styles.requestDates}>
-				{requests.map((request:any) => {
+				{days.map((day:any) => {
 					return (
 						<DayCard
-							title={request.day}
-							label = {request.date}
-							iconImageLink={request.frog}
-							desc={request.desc}
+							title={day.day}
+							label = {day.date}
+							iconImageLink={day.frog}
+							desc={day.desc}
+							onClick={() => (props.history.push(`/guni/discover/${day.date}`))}
 						/>
 					)
 				})}

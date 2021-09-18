@@ -8,13 +8,15 @@ interface Props {
 	desc: string;
 	iconImageLink: string;
 	title: string;
+	onClick: any;
 }
 
 const StatsCard: React.FC<Props> = (props) => {
-	const { label, iconImageLink, title, desc } = props;
+	const { label, iconImageLink, title, desc, onClick } = props;
 
 	return (
-		<div className={`${styles.dayCard}`}>
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
+		<div className={`${styles.dayCard}`} onClick={onClick}>
 			<div className={styles.imageBox}>
 				<img
 					src={iconImageLink}

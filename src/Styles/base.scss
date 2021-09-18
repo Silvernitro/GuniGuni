@@ -97,9 +97,11 @@ button {
 	border-radius: 10px;
 }
 
-&::-webkit-scrollbar-track-piece {
+
+::-webkit-scrollbar-track-piece {
 	height: 6px !important;
 }
+
 
 /* Handle */
 ::-webkit-scrollbar-thumb:horizontal {
