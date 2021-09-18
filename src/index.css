@@ -79,15 +79,3 @@ h1 {
 .yellow {
     color: var(--yellow);
 }
-
-/* Pre-loading images. */
-body::after {
-    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; 
-    content:
-    url("./Assets/hashtap_homepage_BG.png") 
-    url("./Assets/hashtap_homepage_iphone.png") 
-    url("./Assets/hashtap_homepage_arrow.png") 
-    url("./Assets/hashtap_creator_signup_bg.png")
-    url("./Assets/hashtap_brand_signup_bg.png")
-    url("./Assets/hashtap_creator_signup_arrow.png");
- }

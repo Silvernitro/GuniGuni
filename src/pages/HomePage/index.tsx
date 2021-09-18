@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomePage = (props: any) => {
+const HomePage = () => {
 	return (
 		<>
 			<h1> hi </h1>
