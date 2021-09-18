@@ -17,7 +17,7 @@ interface Props {
 
 const BlockAvailabilityPopup = (props:Props) => {
     const {isOpen, setOpen, units, isAccepted} = props;
-    console.log(isAccepted);
+
 	return (
         <>
             <Sidebar
@@ -44,9 +44,12 @@ const BlockAvailabilityPopup = (props:Props) => {
                         }
                         return (
                         <div className={`${hide ? 'hide' : ''} unit`} key={unit.unitNumber}>
-                            <p className="unitNumber"> {unit.unitNumber}: Electronics</p>
+                            <p className="unitNumber"> Unit: {unit.unitNumber}</p>
                             <div className="timestamps">
                                 {unit.timeSlots.map((timestamp: any) => {
+                                    if (isAccepted) {
+                                        return <p> {timestamp} </p>;
+                                    }
                                     const [isAccepting, setAccepting] = React.useState<boolean>(false);
                                     return (
                                         !isAccepting ?
