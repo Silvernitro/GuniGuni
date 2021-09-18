@@ -12,6 +12,7 @@ export enum RequestStatus {
 }
 
 export interface IRequest {
+	id: string;
 	date: string;
 	selectedTimeSlot?: number;
 	timeSlots: number[];
@@ -28,19 +29,31 @@ export const timeSlotMap: { [index: number]: string } = {
 const ConsumerDashboardPage = () => {
 	const [isModalOpen, setModalOpen] = useState(false);
 	const [requests, setRequests] = useState<IRequest[]>([]);
+	const [refreshing, setRefreshing] = useState(true);
 
 	useEffect(() => {
-		(async () => {
-			setRequests(await fetchData());
-		})();
-	}, []);
+		if (refreshing) {
+			(async () => {
+				setRequests(await fetchData());
+				setRefreshing(false);
+			})();
+		}
+	}, [refreshing]);
 
 	const fetchData = async () => {
 		const requests = await Backend.getConsumerRequests('123');
 		return requests as IRequest[];
 	};
 
+	const deleteRequest = async (id: string) => {
+		const success = await Backend.deleteConsumerRequest(id);
+		if (success) {
+			setRefreshing(true);
+		}
+	};
+
 	const renderCard = ({
+		id,
 		date,
 		timeSlots,
 		selectedTimeSlot,
@@ -80,6 +93,7 @@ const ConsumerDashboardPage = () => {
 					size="medium"
 					title="Delete"
 					className={styles.deleteButton}
+					onClick={() => deleteRequest(id)}
 				/>
 			</div>
 		);
@@ -105,6 +119,7 @@ const ConsumerDashboardPage = () => {
 			<PickUpCreationModal
 				open={isModalOpen}
 				handleClose={() => setModalOpen(false)}
+				refresh={() => setRefreshing(true)}
 			/>
 		</div>
 	);

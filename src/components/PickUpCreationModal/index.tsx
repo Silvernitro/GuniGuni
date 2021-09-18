@@ -14,9 +14,14 @@ import styles from './index.module.scss';
 interface IPickUpCreationModal {
 	open: boolean;
 	handleClose(): void;
+	refresh(): void;
 }
 
-const PickUpCreationModal = ({ open, handleClose }: IPickUpCreationModal) => {
+const PickUpCreationModal = ({
+	open,
+	handleClose,
+	refresh
+}: IPickUpCreationModal) => {
 	const [latlng, setLatLng] = useState({});
 	const [locationId, setLocationId] = useState('');
 	const [address, setAddress] = useState('');
@@ -38,6 +43,7 @@ const PickUpCreationModal = ({ open, handleClose }: IPickUpCreationModal) => {
 		console.log(payload);
 		try {
 			const id = await Backend.createConsumerRequest(payload);
+			refresh();
 			handleClose();
 			console.log('id', id);
 		} catch {
