@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Loader } from 'semantic-ui-react';
 import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 import Button from '../../components/Button';
@@ -41,7 +42,7 @@ const ConsumerDashboardPage = () => {
 	}, [refreshing]);
 
 	const fetchData = async () => {
-		const requests = await Backend.getConsumerRequests('123');
+		const requests = await Backend.getConsumerRequests({ consumerId: '123' });
 		return requests as IRequest[];
 	};
 
@@ -114,6 +115,7 @@ const ConsumerDashboardPage = () => {
 					className={styles.addButton}
 					onClick={() => setModalOpen(true)}
 				/>
+				{refreshing && <Loader active />}
 				{requests.map(renderCard)}
 			</div>
 			<PickUpCreationModal
