@@ -66,6 +66,7 @@ const validateConsumerRequest = (request, options) => {
 	let validation = true;
 	if (options) {
 		Object.entries(options).forEach(([key, value]) => {
+			if (Array.isArray(request[key])) return;
 			if (value !== request[key]) {
 				validation = false;
 			}
@@ -98,7 +99,7 @@ class Backend {
 		}
 	};
 
-	static getConsumerRequests = async (options) => {
+	static getConsumerRequests = async (options, reformat) => {
 		const consumerRequests = [];
 		try {
 			const allRequests = await getDocs(collection(db, 'request'));
@@ -113,10 +114,10 @@ class Backend {
 			console.error('Error getting document: ', error);
 		}
 
-		if (options && 'consumerId' in options) {
-			return consumerRequests;
+		if (reformat) {
+			return repackagedRequestResponse(consumerRequests);
 		}
-		return repackagedRequestResponse(consumerRequests);
+		return consumerRequests;
 	};
 
 	static updateConsumerRequest = async (requestId, payload) => {
@@ -136,6 +137,22 @@ class Backend {
 		} catch (error) {
 			console.error('Error deleting document: ', error);
 			return false;
+		}
+	};
+
+	static getNumberOfAcceptedBlock = async (dates, status) => {
+		const newDates = dates.map((date) => {
+			return new Date(date).toDateString();
+		});
+		try {
+			const allRequest = await this.getConsumerRequests({ status });
+			const newResult = allRequest.filter((req) => {
+				return newDates.includes(req.date);
+			});
+			return newResult.length;
+		} catch (error) {
+			console.error('Error deleting document: ', error);
+			return [];
 		}
 	};
 }
