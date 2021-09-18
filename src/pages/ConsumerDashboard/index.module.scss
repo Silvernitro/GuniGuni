@@ -1,0 +1,14 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.consumerDashboard {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.addButton {
+	width: 100%;
+	padding: 1.75rem;
+	margin-top: 24px;
+}
