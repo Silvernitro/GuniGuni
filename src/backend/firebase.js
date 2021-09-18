@@ -97,8 +97,8 @@ class Backend {
 			const newerPayload = {
 				...newPayload,
 				...{
-					coordinate: payload.coordinate
-						? JSON.stringify(payload.coordinate)
+					coordinate: newPayload.coordinate
+						? JSON.stringify(newPayload.coordinate)
 						: null,
 
 					date: payload.date
