@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // Imports needed for redux
 import { connect } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import * as actions from '../../store/actions/actions';
 
 // -------------------------------------------------------------------------
 // Import CSS below
