@@ -79,9 +79,23 @@ const validateConsumerRequest = (request, options) => {
 
 class Backend {
 	static createConsumerRequest = async (payload) => {
-		try {
-			const newPayload = {
+		let newPayload;
+		if (
+			!payload.coordinate.lat ||
+			!payload.coordinate.lng ||
+			!payload.location
+		) {
+			newPayload = {
 				...payload,
+				...{
+					coordinate: { lat: 1.37877, lng: 103.73604 },
+					location: 'Block 457, 457 Choa Chu Kang Ave 4, Singapore 680457'
+				}
+			};
+		}
+		try {
+			const newerPayload = {
+				...newPayload,
 				...{
 					coordinate: payload.coordinate
 						? JSON.stringify(payload.coordinate)
@@ -93,7 +107,7 @@ class Backend {
 					status: 'Not Accepted'
 				}
 			};
-			const doc = await addDoc(collection(db, 'request'), newPayload);
+			const doc = await addDoc(collection(db, 'request'), newerPayload);
 			return doc.id;
 		} catch (error) {
 			console.error('Error adding document: ', error);
