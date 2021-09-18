@@ -14,7 +14,7 @@ const Nav = () => {
     const options: any[] = [
         {title: 'Home', to: '/', icon: 'home'},
         {title: 'Login', to: '/', icon: 'user'},
-        {title: 'Explore', to: '/', icon: 'search'},
+        {title: 'Explore', to: '/guni/discover', icon: 'search'},
         {title: 'Requests', to: '/', icon: 'tags'},
     ]
 		return (
