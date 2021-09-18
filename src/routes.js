@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage';
 import ConsumerDashboard from './pages/ConsumerDashboard';
 import GuniDiscoverPage from './pages/GuniDiscoverPage';
 import GuniDiscoverMapPage from './pages/GuniDiscoverMapPage';
+import GuniAcceptedRequests from './pages/GuniAcceptedRequests';
+import GuniAcceptedRequestsMapPage from './pages/GuniAcceptedRequestsMapPage';
 
 const BaseRouter = () => (
 	<Switch>
@@ -11,6 +13,8 @@ const BaseRouter = () => (
 		<Route exact path="/consumer-dashboard" component={ConsumerDashboard} />
 		<Route exact path="/guni/discover" component={GuniDiscoverPage} />
 		<Route exact path="/guni/discover/:date" component={GuniDiscoverMapPage} />
+		<Route exact path="/guni/accepted" component={GuniAcceptedRequests} />
+		<Route exact path="/guni/accepted/:date" component={GuniAcceptedRequestsMapPage} />
 	</Switch>
 );
 

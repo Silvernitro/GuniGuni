@@ -6,7 +6,7 @@ import DateDropdown from '../../components/Dropdown';
 import Button from '../../components/Button';
 
 
-const GuniDiscoverMapPage = (props:any) => {
+const GuniAcceptedRequestsMapPage = (props:any) => {
 	const displayDate = props.match.params.date;
 	const dates = []
 	const currDate = new Date();
@@ -59,7 +59,7 @@ const GuniDiscoverMapPage = (props:any) => {
 			<Nav />
 			<div className={`page-background`}>
 				<div className={styles.headerRow}>
-					<Button type='secondary' size='small' color='green' title='Back' to='/guni/discover'/>
+					<Button type='secondary' size='small' color='green' title='Back' to='/guni/accepted'/>
 					<DateDropdown dates={dates} placeholder={displayDate}/>
 				</div>
 				<Map blocks = {BLKS}/>
@@ -68,4 +68,4 @@ const GuniDiscoverMapPage = (props:any) => {
 	);
 };
 
-export default GuniDiscoverMapPage;
+export default GuniAcceptedRequestsMapPage;

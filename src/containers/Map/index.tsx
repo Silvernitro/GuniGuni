@@ -32,7 +32,6 @@ const Map = (props:Props) => {
       });
 
       blocks.map((blk:any, index: number) => {
-        console.log("lel");
         // @ts-ignore
         const marker = new window.google.maps.Marker({
           position: blk.latLng,

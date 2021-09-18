@@ -15,7 +15,7 @@ const Nav = () => {
         {title: 'Home', to: '/', icon: 'home'},
         {title: 'Login', to: '/', icon: 'user'},
         {title: 'Explore', to: '/guni/discover', icon: 'search'},
-        {title: 'Requests', to: '/', icon: 'tags'},
+        {title: 'Accepted', to: '/guni/accepted', icon: 'tags'},
     ]
 		return (
         <>

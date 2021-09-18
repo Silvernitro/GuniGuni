@@ -9,14 +9,15 @@ interface Props {
 	iconImageLink: string;
 	title: string;
 	onClick: any;
+	isYellow?: boolean;
 }
 
 const StatsCard: React.FC<Props> = (props) => {
-	const { label, iconImageLink, title, desc, onClick } = props;
+	const { label, iconImageLink, title, desc, onClick, isYellow } = props;
 
 	return (
 		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
-		<div className={`${styles.dayCard}`} onClick={onClick}>
+		<div className={`${styles.dayCard} ${isYellow ? styles.yellow : ''}`} onClick={onClick}>
 			<div className={styles.imageBox}>
 				<img
 					src={iconImageLink}

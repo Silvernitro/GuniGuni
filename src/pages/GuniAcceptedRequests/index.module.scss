@@ -1,6 +1,10 @@
 @use '../../styles/utils.scss';
 @import '../../styles/guidelines.scss';
 
+.accepted {
+	// background: $yellow_1 !important;
+}
+
 .title {
 	margin-bottom: 20px !important;
 	font-size: $fontsize_subtitle_24;
