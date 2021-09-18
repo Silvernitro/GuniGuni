@@ -1,0 +1,43 @@
+@import '../../styles/guidelines';
+
+.statsCard {
+	color: $prim_white;
+	background: $green_0;
+	border: 1px solid $grey_3;
+	border-radius: 7px;
+	width: 25%;
+	min-width: 20rem;
+	text-align: center;
+	padding: 3rem 0;
+
+	&:nth-child(4n) {
+		border-right: 0;
+	}
+
+	@media only screen and(max-width: 890px) {
+		border: 0;
+	}
+	@media only screen and(max-width: 600px) {
+		border-top: 1px solid #fff;
+	}
+}
+
+.statsCount {
+	font-size: $fontsize_title_54;
+	color: inherit;
+	font-weight: fontweight_bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	span {
+		font-size: 14px;
+		margin-left: 5px;
+	}
+}
+
+.statsMessage {
+	font-size: $fontsize_content_14;
+	font-weight: fontweight_regular;
+	color: inherit;
+	width: 100%;
+}
