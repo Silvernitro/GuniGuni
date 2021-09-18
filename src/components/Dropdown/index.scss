@@ -1,0 +1,53 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.ui.dropdown.selectionFilter {
+	color: $grey_6 !important;
+	background-color: $prim_white;
+	max-height: 35px !important;
+	min-height: 35px !important;
+	width: 100px;
+	height: 35px;
+	font-size: 12px;
+	font-weight: 400 !important;
+	padding: 8px 10px !important;
+	border-radius: 4px !important;
+	display: flex;
+	border: 1px solid $grey_3;
+	justify-content: space-between;
+	align-items: center;
+  
+	.text {
+	  color: $green_5 !important;
+	  font-size: 14px !important;
+	  font-weight: 600;
+	
+	}
+  
+	.default {
+	  color: $green_5 !important;
+	  font-weight: 600;
+	}
+  
+	.menu.transition {
+	  border: 1px solid $grey_3 !important;
+	  font-size: 12px !important;
+	  max-height: 250px !important;
+	  z-index: 999;
+  
+	  .item {
+		color: $grey_8 !important;
+		font-weight: 400;
+		font-size: 12px;
+  
+		&:hover {
+		  background: $grey_1 !important;
+		}
+  
+		&.active {
+		  font-weight: 500 !important;
+		}
+	  }
+	}
+  }
+  

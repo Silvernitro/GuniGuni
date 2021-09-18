@@ -1,0 +1,55 @@
+@import '../../styles/guidelines';
+
+.dayCard {
+	color: $prim_white;
+	background: $green_0;
+	border: 1px solid $grey_3;
+	box-shadow: $box-shadow-1;
+	border-radius: 7px;
+	width: 120px;
+	text-align: center;
+	padding: 20px 0;
+	margin-bottom: 10px;
+
+	&:nth-child(4n) {
+		border-right: 0;
+	}
+
+	@media only screen and(max-width: 890px) {
+		border: 0;
+	}
+	@media only screen and(max-width: 600px) {
+		border-top: 1px solid #fff;
+	}
+}
+
+.imageBox {
+	width: 120px;
+	position: relative;
+
+	img {
+		object-fit: contain;
+		width: 80px;
+	}
+
+	h3 {
+		font-size: $fontsize_subtitle_20 !important;
+		color: $prim_dark_1;
+		position: absolute;
+		top: 58px;
+		left: 38px;
+	}
+}
+
+.label {
+	margin-top: 10px;
+	font-size: $fontsize_content_18;
+	font-weight: 600;
+	color: $prim_dark_2;
+}
+
+.desc {
+	font-size: $fontsize_content_14;
+	color: $prim_dark_2;
+	width: 100%;
+}

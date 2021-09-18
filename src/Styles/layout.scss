@@ -3,11 +3,27 @@
 	width: 100vw;
 	height: 100vh;
 	padding-left: 10rem;
+	display: flex;
 	position: relative;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	@media only screen and(max-width: 1080px) {
 		width: 100vw;
 		padding: 0;
 	}
+}
+
+// rounded white background
+.page-background {
+	position: relative;
+	background-color: white;
+	height: 90%;
+	width: 90%;
+	margin: 0 20px;
+	margin-top: 30px;
+	padding: 0 20px;
+	border-radius: 12px;
 }
 
 .navigation-container {

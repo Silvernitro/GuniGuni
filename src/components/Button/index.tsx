@@ -8,7 +8,7 @@ import styles from './index.module.scss';
 interface Props {
 	color: 'white' | 'green';
 	type: 'primary' | 'secondary';
-	size: 'small' | 'medium' | 'big';
+	size: 'small' | 'medium';
 	title: string;
 	onClick?: () => any;
 	to?: string;
@@ -29,8 +29,7 @@ const CTAButton = (props: Props) => {
 
 	const sizeClassName = classnames(
 		{ [styles.small]: size === 'small' },
-		{ [styles.medium]: size === 'medium' },
-		{ [styles.big]: size === 'big' }
+		{ [styles.medium]: size === 'medium' }
 	);
 
 	if (to) {

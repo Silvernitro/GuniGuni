@@ -7,18 +7,20 @@ import {
 
 /* Styles */
 import styles from './index.module.scss';
+import NavIcon from '../../Assets/nav.svg';
 
 const Nav = () => {
     const [visible, setVisible] = React.useState(false)
     const options: any[] = [
         {title: 'Home', to: '/', icon: 'home'},
-        {title: 'Login', to: '/', icon: 'home'},
-        {title: 'Explore', to: '/', icon: ''},
-        {title: 'Requests', to: '/', icon: ''},
+        {title: 'Login', to: '/', icon: 'user'},
+        {title: 'Explore', to: '/guni/discover', icon: 'search'},
+        {title: 'Requests', to: '/', icon: 'tags'},
     ]
 		return (
         <>
-            <button onClick={() => setVisible(true)}> hi </button>
+            <button onClick={() => setVisible(true)} className={styles.navButton}> 
+                <img src={NavIcon} className={styles.navIcon} alt="icon"/> </button>
             <Sidebar
                 className={styles.nav}
               animation='overlay'
@@ -32,10 +34,10 @@ const Nav = () => {
                 <div className={styles.nav}> 
                     {options.map((option) => {
                         return (
-                        <div className={styles.navOption}>
+                        <a className={styles.navOption} href={option.to}>
                             <Icon name={option.icon} className={styles.icon}/>
                             <p className={styles.navText}> {option.title} </p>
-                        </div>);
+                        </a>);
                     })}
                 </div>
             </Sidebar>
