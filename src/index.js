@@ -10,7 +10,7 @@ import BaseRouter from './routes';
 // Import css to remove margin
 import './index.css';
 import './index.scss';
-import './styles/layout.scss';
+import "./Styles/layout.scss"
 
 const app = (
 	<Router>
