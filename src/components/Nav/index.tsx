@@ -26,16 +26,14 @@ const Nav = () => {
                 className={styles.nav}
               animation='overlay'
               icon='labeled'
-              inverted
               onHide={() => setVisible(false)}
-              vertical
               visible={visible}
               width='thin'
             >
                 <div className={styles.nav}> 
                     {options.map((option) => {
                         return (
-                        <a className={styles.navOption} href={option.to}>
+                        <a className={styles.navOption} href={option.to} key={option.title}>
                             <Icon name={option.icon} className={styles.icon}/>
                             <p className={styles.navText}> {option.title} </p>
                         </a>);

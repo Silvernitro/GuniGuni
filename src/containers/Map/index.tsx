@@ -14,23 +14,33 @@ const SG = {
 interface Props {
   blocks: any
 }
+
+
 const Map = (props:Props) => {
+    // eslint-disable-next-line no-var
     const { blocks } = props;
     const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
     const [displayedBlockRequests, setDisplayedBlockRequests] = React.useState<any[]>([])
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     const handleClick = (index:number) => {
-      setDisplayedBlockRequests(blocks[index].requests);
+      setDisplayedBlockRequests(blocks[index] && blocks[index].requests);
       setPopupOpen(true);
     }
 
-    let map = <div id="map"/>;
+    // eslint-disable-next-line vars-on-top
+    let map = <div id="map"/>
+
     function initMap() {
       // @ts-ignore
       map = new window.google.maps.Map(document.getElementById("map"), {
         center: { lat: SG.lat, lng: SG.lng },
         zoom: 11,
       });
+    }
 
+    function addBlocks() {
+      // @ts-ignore
       blocks.map((blk:any, index: number) => {
         // @ts-ignore
         const marker = new window.google.maps.Marker({
@@ -48,6 +58,7 @@ const Map = (props:Props) => {
 
     React.useEffect(() => {
         initMap();
+        addBlocks();
     }, [])
 
 	return (
