@@ -1,23 +1,29 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
+import './index.scss';
 
-// TODO: This is missing functionality for sub-menu here from SUI core examples.
-// The "Publish To Web" item should contain a sub-menu.
 interface Props {
-	dates: string[];
+	dates: {key: Number, text: string, value: Number}[];
 }
 
 const DateDropdown = (props: Props) => {
-	const {dates} = props;
 
+	const {dates} = props;
+	console.log(dates);
+	const options = [
+		{key: 1, text: '23 AUG', value: 1},
+		{key: 2, text: '24 Aug', value: 2},
+		{key: 3, text: '25 Aug', value: 3},
+	]
 	return (
-		<Dropdown text='File'>
-			<Dropdown.Menu>
-			{dates.map((date) => (
-				<Dropdown.Item text={date} />	
-			))}
-			</Dropdown.Menu>
-		</Dropdown>
+		<Dropdown
+			search
+			fluid
+			className="selectionFilter"
+			options={options}
+			placeholder='23 AUG'
+			scrolling
+      />
   	)
 }
 
