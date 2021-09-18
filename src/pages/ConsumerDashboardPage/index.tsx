@@ -24,7 +24,7 @@ export const timeSlotMap: { [index: number]: string } = {
 	15: '3PM - 6PM'
 };
 
-const ConsumerDashboard = () => {
+const ConsumerDashboardPage = () => {
 	const [isModalOpen, setModalOpen] = useState(false);
 
 	const dummyData: IRequest[] = [
@@ -125,4 +125,4 @@ const ConsumerDashboard = () => {
 	);
 };
 
-export default ConsumerDashboard;
+export default ConsumerDashboardPage;

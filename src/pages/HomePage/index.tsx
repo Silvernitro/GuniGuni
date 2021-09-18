@@ -1,10 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import RecyclingManVector from '../../Assets/VectorMan.png';
 import Button from '../../components/Button';
 import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 
 const HomePage = () => {
+	const history = useHistory();
+
 	return (
 		<div className={`${styles.homePage} page-container`}>
 			<Nav />
@@ -24,7 +27,9 @@ const HomePage = () => {
 				size="medium"
 				title="Let's Start"
 				className={styles.button}
-				onClick={async () => {}}
+				onClick={() => {
+					history.push('/login');
+				}}
 			/>
 		</div>
 	);
