@@ -34,10 +34,10 @@ const Nav = () => {
                 <div className={styles.nav}> 
                     {options.map((option) => {
                         return (
-                        <div className={styles.navOption}>
+                        <a className={styles.navOption} href={option.to}>
                             <Icon name={option.icon} className={styles.icon}/>
                             <p className={styles.navText}> {option.title} </p>
-                        </div>);
+                        </a>);
                     })}
                 </div>
             </Sidebar>
