@@ -2,5 +2,30 @@
 @import '../../styles/guidelines.scss';
 
 .homePage {
-	background-color: $green_3;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.heroVector {
+	max-width: 80vw;
+	height: 30vh;
+}
+
+.heroTitle {
+	font-family: 'Lemon Milk';
+	color: $prim_white;
+	font-size: 72px;
+}
+
+.heroDesc {
+	margin-top: 40px !important;
+	text-align: center;
+	font-size: 28px;
+	color: $prim_white;
+}
+
+.button {
+	border-radius: 20px !important;
 }
