@@ -37,7 +37,7 @@ const BlockAvailabilityPopup = (props:Props) => {
                             const add12 = time[time.length-1] === "P"
                             // eslint-disable-next-line radix
                             const timeNumber = Number.parseInt(time.substring(0, time.length - 1));
-                            const timeSubmission = add12 ? timeNumber + 12 : timeNumber;
+                            const timeSubmission = (add12 && timeNumber !== 12) ? timeNumber + 12 : timeNumber;
                             Backend.updateConsumerRequest(requestId, {status: "Accepted", 
                                 selectedTimeSlot: timeSubmission});
                             setHide(true);
