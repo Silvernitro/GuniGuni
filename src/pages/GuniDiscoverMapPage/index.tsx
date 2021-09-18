@@ -24,8 +24,8 @@ const GuniDiscoverMapPage = (props:any) => {
 
 	React.useEffect(() => {
 		const getBlocks = async () => {
-			const date = new Date(`${currentDate} 2021`).toDateString();
-			const test = await Backend.getConsumerRequests({options: {Date: date}});
+			const myDate = new Date(`${currentDate} 2021`).toDateString();
+			const test = await Backend.getConsumerRequests({date: myDate, status: 'Not Accepted'});
 			setBlocks(test);
 			setLoading(false);
 		}
