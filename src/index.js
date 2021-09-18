@@ -10,7 +10,6 @@ import BaseRouter from './routes';
 // Import css to remove margin
 import './index.css';
 import './index.scss';
-import 'semantic-ui-css/semantic.min.css'
 
 const app = (
 	<Router>

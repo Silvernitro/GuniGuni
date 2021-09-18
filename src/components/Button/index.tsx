@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import styles from './index.module.scss';
 
 interface Props {
-	colorScheme: 'brand' | 'creator';
+	color: 'white' | 'green';
 	type: 'primary' | 'secondary';
 	size: 'small' | 'medium' | 'big';
 	title: string;
@@ -16,10 +16,10 @@ interface Props {
 }
 
 const CTAButton = (props: Props) => {
-	const { colorScheme, type, size, title, onClick, to, className } = props;
+	const { color, type, size, title, onClick, to, className } = props;
 	const colorClassName = classnames(
-		{ [styles.brand]: colorScheme === 'brand' },
-		{ [styles.creator]: colorScheme === 'creator' }
+		{ [styles.white]: color === 'white' },
+		{ [styles.green]: color === 'green' }
 	);
 
 	const typeClassName = classnames(

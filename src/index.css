@@ -23,7 +23,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Poppins, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
 }
 
@@ -32,7 +32,7 @@ h1:link, h2:link, h3:link, a:link {
 }
 
 p, li {
-    font-family: Open Sans, sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     margin: 0;
     font-size: 14px;
     font-weight: normal;
@@ -61,9 +61,11 @@ h1 {
 .bold {
     font-weight: bold;
 }
+
 .light {
     font-weight: 300;
 }
+
 .black {
     color: black;
 }

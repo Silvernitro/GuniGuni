@@ -4,15 +4,6 @@ $prim_dark_2: #2e3b4a;
 $prim_white: #fff;
 $prim_black: #000;
 
-/* Secondary Colors */
-$second_grey: #808080;
-$second_gainsboro: #dcdcdc;
-$second_lightgrey: #d3d3d3;
-$second_silver: #c0c0c0;
-$second_darkgrey: #a9a9a9;
-$second_lightslategrey: #789;
-$second_slategrey: #708090;
-$second_dimgrey: #696969;
 
 /* Grey Color Scales  */
 $grey_0: #f9f9fa;
@@ -26,21 +17,14 @@ $grey_7: #7e8b96;
 $grey_8: #636d76;
 $grey_9: #3a4045;
 
-$green0: #ECFDF6;
-$green1: #D9EDDF;
-$green2: #B2E292;
-$green3: #8CD69E;
-$green4: #6FC8A8;
-$green5: #00A877;
-$yellow1: #DCEB88;
-
-$grey_3: #ced4d9;
-$grey_4: #bdc5cc;
-$grey_5: #aab4bd;
-$grey_6: #95a1ac;
-$grey_7: #7e8b96;
-$grey_8: #636d76;
-$grey_9: #3a4045;
+/* GUNI GUNI GREEN & YELLOW */
+$green_0: #ECFDF6;
+$green_1: #D9EDDF;
+$green_2: #B2E292;
+$green_3: #8CD69E;
+$green_4: #6FC8A8;
+$green_5: #00A877;
+$yellow_1: #DCEB88;
 
 $prim_dark_1: #3b4557;
 $prim_dark_2: #2e3b4a;
@@ -54,22 +38,6 @@ $system_red: #eb675e;
 $system_green: #5dc560;
 $system_blue: #5381db;
 $system_cream: #fff2ee;
-
-/* Font Colors */
-$fontcolor_prim_dark_1: $prim_dark_1;
-$fontcolor_prim_dark_2: $prim_dark_2;
-$fontcolor_white: $prim_white;
-$fontcolor_black: $prim_black;
-
-/* Lines Colors */
-$linecolor_grey: $second_grey;
-$linecolor_gainsboro: $second_gainsboro;
-$linecolor_lightgrey: $second_lightgrey;
-$linecolor_silver: $second_silver;
-$linecolor_darkgrey: $second_darkgrey;
-$linecolor_lightslategrey: $second_lightslategrey;
-$linecolor_slategrey: $second_slategrey;
-$linecolor_dimgrey: $second_dimgrey;
 
 /* Border Color */
 $border-color-1: #707070;
