@@ -41,7 +41,7 @@ const ConsumerDashboardPage = () => {
 	}, [refreshing]);
 
 	const fetchData = async () => {
-		const requests = await Backend.getConsumerRequests('123');
+		const requests = await Backend.getConsumerRequests({ consumerId: '123' });
 		return requests as IRequest[];
 	};
 
