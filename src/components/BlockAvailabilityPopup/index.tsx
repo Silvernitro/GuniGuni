@@ -12,11 +12,12 @@ interface Props {
     setOpen: (status: boolean) => void;
     isOpen: boolean;
     units: any[];
+    // isAccepted?: boolean;
 }
 
 const BlockAvailabilityPopup = (props:Props) => {
     const {isOpen, setOpen, units} = props;
-
+    console.log(units);
 	return (
         <>
             <Sidebar
@@ -31,8 +32,14 @@ const BlockAvailabilityPopup = (props:Props) => {
                     <p className="blockNumber"> BLK 530001 </p>
                     {units.map((unit) => {
                         const [hide, setHide] = React.useState(false);
-                        const handleAccept = (requestId: string) => {
-                            Backend.updateConsumerRequest(requestId, {status: "Accepted"});
+                        const handleAccept = (requestId: string, timestamp: string) => {
+                            const time = timestamp.split("M")[0]
+                            const add12 = time[time.length-1] === "P"
+                            // eslint-disable-next-line radix
+                            const timeNumber = Number.parseInt(time.substring(0, time.length - 1));
+                            const timeSubmission = add12 ? timeNumber + 12 : timeNumber;
+                            Backend.updateConsumerRequest(requestId, {status: "Accepted", 
+                                selectedTimeSlot: timeSubmission});
                             setHide(true);
                         }
                         return (
@@ -57,7 +64,7 @@ const BlockAvailabilityPopup = (props:Props) => {
                                             color='green' 
                                             size='small' 
                                             title="Accept"
-                                            onClick={() => handleAccept(unit.requestId)}
+                                            onClick={() => handleAccept(unit.requestId, timestamp)}
                                         />
                                     );
                                 })}
