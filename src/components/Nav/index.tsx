@@ -14,8 +14,18 @@ const Nav = () => {
 		{ title: 'Accepted', to: '/guni/accepted', icon: 'tags' }
 	];
 
+	const globalOptions: any[] = [	
+		{ title: 'Home', to: '/', icon: 'home' },
+		{ title: 'Login', to: '/login', icon: 'user' }
+	]
+
+	const recyclerOptions: any[] = [
+		{ title: 'Home', to: '/', icon: 'home' }
+	]
+
 	const loggedInRole = localStorage.getItem('role');
-	const options = loggedInRole === Role.Recycler ? [] : guniOptions;
+	const options = loggedInRole === Role.Recycler ? recyclerOptions
+	 : loggedInRole === 'guni'  ? guniOptions : globalOptions;
 
 	return (
 		<>
