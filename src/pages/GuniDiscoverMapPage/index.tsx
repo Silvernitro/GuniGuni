@@ -58,7 +58,7 @@ const GuniDiscoverMapPage = (props:any) => {
 	]
 	return (
 		<div className={`${styles.homePage} page-container`}>
-			<Nav/>
+			<Nav />
 			<div className={`page-background`}>
 				<div className={styles.headerRow}>
 					<Button type='secondary' size='small' color='green' title='Back'/>

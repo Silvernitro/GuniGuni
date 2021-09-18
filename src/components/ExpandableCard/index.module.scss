@@ -1,0 +1,17 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.cardRoot {
+	width: 100%;
+	margin: 12px 0px;
+	border: 2px solid $green-5;
+	overflow: unset !important;
+}
+
+.cardHeader {
+	display: flex;
+}
+
+.cardBody {
+	padding-top: 0px;
+}

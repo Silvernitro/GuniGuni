@@ -1,0 +1,33 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.consumerDashboard {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.addButton {
+	width: 100%;
+	padding: 1.75rem;
+	margin-top: 24px;
+}
+
+.deleteButton {
+	width: 100%;
+	margin-top: 12px;
+	background-color: $system-red;
+	color: white;
+}
+
+.cardHeader {
+	flex-grow: 1;
+}
+
+.accepted {
+	color: $green_5;
+}
+
+.notAccepted {
+	color: $system-red;
+}
