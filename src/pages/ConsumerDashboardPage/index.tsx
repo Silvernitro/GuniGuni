@@ -15,7 +15,7 @@ export enum RequestStatus {
 export interface IRequest {
 	id: string;
 	date: string;
-	selectedTimeSlot?: number;
+	selectedTimeSlot?: number[];
 	timeSlots: number[];
 	status: RequestStatus;
 	location: string;
@@ -67,7 +67,7 @@ const ConsumerDashboardPage = () => {
 			<div className={styles.cardHeader}>
 				<p>{date}</p>
 				{isAccepted && selectedTimeSlot && (
-					<p>{timeSlotMap[selectedTimeSlot]}</p>
+					<p>{timeSlotMap[selectedTimeSlot[0]]}</p>
 				)}
 				<p className={isAccepted ? styles.accepted : styles.notAccepted}>
 					{isAccepted ? 'Accepted' : 'Not Accepted'}
