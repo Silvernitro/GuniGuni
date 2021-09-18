@@ -41,7 +41,7 @@ const repackagedRequestResponse = (arr) => {
 		const newReq = {
 			unitNumber: req.unitNum,
 			timeSlots: req[
-				req.status === 'Accepted' ? 'selectedTimeSlot' : 'timeSlot'
+				req.status === 'Accepted' ? 'selectedTimeSlot' : 'timeSlots'
 			].map((start) => toTimeSlot(start)),
 			garangGuniId: req.garangGuniId,
 			requestId: req.id
@@ -147,11 +147,13 @@ class Backend {
 			return new Date(date).toDateString();
 		});
 		try {
-			const allRequest = await this.getConsumerRequests({ status });
-			const newResult = allRequest.filter((req) => {
-				return newDates.includes(req.date);
-			});
-			return newResult.length;
+			const newResult = Promise.all(
+				newDates.map(async (date) => {
+					const requests = await this.getConsumerRequests({ status, date });
+					return requests.length;
+				})
+			);
+			return newResult;
 		} catch (error) {
 			console.error('Error deleting document: ', error);
 			return [];
