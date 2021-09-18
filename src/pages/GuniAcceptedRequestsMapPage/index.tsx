@@ -25,7 +25,8 @@ const GuniAcceptedRequestsMapPage = (props:any) => {
 	React.useEffect(() => {
 		const getBlocks = async () => {
 			const myDate = new Date(`${currentDate} 2021`).toDateString();
-			const test = await Backend.getConsumerRequests({date: myDate, status: 'Not Accepted'});
+			const test = await Backend.getConsumerRequests({date: myDate, status: 'Accepted'});
+			console.log(test);
 			setBlocks(test);
 			setLoading(false);
 		}
