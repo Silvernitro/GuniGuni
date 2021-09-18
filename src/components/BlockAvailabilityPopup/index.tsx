@@ -21,9 +21,7 @@ const BlockAvailabilityPopup = (props:Props) => {
               direction='bottom'
               animation='overlay'
               icon='labeled'
-              inverted
               onHide={() => setOpen(false)}
-              vertical
               visible={isOpen}
               width='thin'
             >
@@ -31,7 +29,7 @@ const BlockAvailabilityPopup = (props:Props) => {
                     <p className="blockNumber"> BLK 530001 </p>
                     {units.map((unit) => {
                         return (
-                        <div className="unit">
+                        <div className="unit" key={unit.unitNumber}>
                             <p className="unitNumber"> {unit.unitNumber}: Electronics</p>
                             <div className="timestamps">
                                 {unit.timeSlots.map((timestamp: any) => {
