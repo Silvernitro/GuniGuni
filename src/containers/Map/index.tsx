@@ -1,15 +1,19 @@
 import React from 'react';
-// import { Wrapper } from "@googlemaps/react-wrapper";
 
 /* Styling */
 import './index.scss';
+
+/* Components */
+import BlockAvailabilityPopup from '../../components/BlockAvailabilityPopup';
 
 const SG = {
     lat: 1.3521,
     lng: 103.8198
 }
 const Map = () => {
+    const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
     let map = <div id="map"/>;
+
     function initMap() {
     // @ts-ignore
       map = new window.google.maps.Map(document.getElementById("map"), {
@@ -22,8 +26,8 @@ const Map = () => {
         map,
         title: "Hello World!",
       });
-      marker.addListener("click", (e: any) => {
-        console.log(e.latLng.lat());
+      marker.addListener("click", () => {
+        setPopupOpen(true);
       });
       marker.setMap(map);
     }
@@ -34,6 +38,7 @@ const Map = () => {
 	return (
         <div>
             {map}
+            <BlockAvailabilityPopup isOpen={isPopupOpen} setOpen = {setPopupOpen}/>
         </div>
 	);
 };
