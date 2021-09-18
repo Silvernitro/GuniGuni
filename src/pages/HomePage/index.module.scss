@@ -6,26 +6,32 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .heroVector {
-	max-width: 80vw;
+	max-width: 60vw;
 	height: 30vh;
+	object-fit: contain;
 }
 
 .heroTitle {
 	font-family: 'Lemon Milk';
 	color: $prim_white;
-	font-size: 72px;
+	font-size: 56px;
+	font-weight: bolder;
 }
 
 .heroDesc {
-	margin-top: 40px !important;
+	width: 70%;
+	font-weight: lighter;
+	margin-top: 40px;
 	text-align: center;
 	font-size: 28px;
 	color: $prim_white;
 }
 
 .button {
+	margin-top: 30px;
 	border-radius: 20px !important;
 }
