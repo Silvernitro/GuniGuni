@@ -9,8 +9,8 @@ const HomePage = () => {
 			<img src={RecyclingManVector} alt="vector"/>
 			<h1> Modern Recycling for Modern Families </h1>
 			<Button 
-				color="white"
-				type="primary"
+				color="green"
+				type="secondary"
 				size="small"
 				title="Let's Start"
 				onClick={() => null}

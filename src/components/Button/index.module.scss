@@ -15,17 +15,25 @@
 }
 
 .green {
-	color: $green_5;
-	background: $green_5;
+	color: $prim_white;
+	background: $green_4;
 }
 
 .primary {
 	// color: $prim_white !important;
 }
 
-.secondary {
+.secondary.green {
 	background: none !important;
-	border: 1px solid !important;
+	color: $green_5 !important;
+	border: 1px solid $green_5 !important;
+	box-shadow: none !important;
+}
+
+.secondary.white {
+	background: none !important;
+	border: 1px solid $prim_white !important;
+	color: $prim_white !important;
 	box-shadow: none !important;
 }
 
