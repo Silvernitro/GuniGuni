@@ -32,44 +32,6 @@ const GuniDiscoverMapPage = (props:any) => {
 		getBlocks();
 	}, [currentDate]);
 
-	// const BLKS = [
-	// 	{
-	// 		latLng: {
-	// 			lat: 1.3521,
-	// 			lng: 103.8198
-	// 		},
-	// 		address: '123123',
-	// 		requests: [
-	// 			{unitNumber: '#10-101', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 			{unitNumber: '#10-102', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 			{unitNumber: '#10-103', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 		]
-	// 	},
-	// 	{
-	// 		latLng: {
-	// 			lat: 1.371778,
-	// 			lng: 103.893059
-	// 		},
-	// 		address: '530001',
-	// 		requests: [
-	// 			{unitNumber: '#9-101', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 			{unitNumber: '#9-102', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 			{unitNumber: '#9-103', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 		]
-	// 	},
-	// 	{
-	// 		latLng: {
-	// 			lat: 1.3329,
-	// 			lng: 103.7436
-	// 		},
-	// 		address: '654321',
-	// 		requests: [
-	// 			{unitNumber: '#8-101', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 			{unitNumber: '#8-102', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 			{unitNumber: '#8-103', timeSlots: ['9AM-12PM', '12PM-3PM', '3PM-6PM']},
-	// 		]
-	// 	}
-	// ]
 	return (
 		<div className={`${styles.homePage} page-container`}>
 			<Nav />

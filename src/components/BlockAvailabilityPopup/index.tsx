@@ -6,6 +6,7 @@ import {
 /* Styles */
 import './index.scss';
 import Button from '../Button';
+import Backend from '../../backend/firebase';
 
 interface Props {
     setOpen: (status: boolean) => void;
@@ -15,7 +16,8 @@ interface Props {
 
 const BlockAvailabilityPopup = (props:Props) => {
     const {isOpen, setOpen, units} = props;
-		return (
+
+	return (
         <>
             <Sidebar
               direction='bottom'
@@ -28,8 +30,13 @@ const BlockAvailabilityPopup = (props:Props) => {
                 <div className={'blockAvailabilityPopup'}> 
                     <p className="blockNumber"> BLK 530001 </p>
                     {units.map((unit) => {
+                        const [hide, setHide] = React.useState(false);
+                        const handleAccept = (requestId: string) => {
+                            Backend.updateConsumerRequest(requestId, {status: "Accepted"});
+                            setHide(true);
+                        }
                         return (
-                        <div className="unit" key={unit.unitNumber}>
+                        <div className={`${hide ? 'hide' : ''} unit`} key={unit.unitNumber}>
                             <p className="unitNumber"> {unit.unitNumber}: Electronics</p>
                             <div className="timestamps">
                                 {unit.timeSlots.map((timestamp: any) => {
@@ -50,7 +57,7 @@ const BlockAvailabilityPopup = (props:Props) => {
                                             color='green' 
                                             size='small' 
                                             title="Accept"
-                                            onClick={() => setAccepting(false)}
+                                            onClick={() => handleAccept(unit.requestId)}
                                         />
                                     );
                                 })}

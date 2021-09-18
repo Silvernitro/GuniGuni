@@ -7,6 +7,16 @@ import Nav from '../../components/Nav';
 
 const HomePage = () => {
 	const history = useHistory();
+	const loggedInRole = localStorage.getItem('role');
+	
+	let startLink: string;
+	if (loggedInRole === 'guni') {
+		startLink = '/guni/discover';
+	} else if (loggedInRole === 'recycler') {
+		startLink = '/consumer-dashboard';
+	} else {
+		startLink = '/login';
+	}
 
 	return (
 		<div className={`${styles.homePage} page-container`}>
@@ -28,7 +38,7 @@ const HomePage = () => {
 				title="Let's Start"
 				className={styles.button}
 				onClick={() => {
-					history.push('/login');
+					history.push(startLink);
 				}}
 			/>
 		</div>

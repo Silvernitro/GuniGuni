@@ -10,7 +10,6 @@ const Nav = () => {
 	const [visible, setVisible] = React.useState(false);
 	const guniOptions: any[] = [
 		{ title: 'Home', to: '/', icon: 'home' },
-		{ title: 'Login', to: '/login', icon: 'user' },
 		{ title: 'Explore', to: '/guni/discover', icon: 'search' },
 		{ title: 'Accepted', to: '/guni/accepted', icon: 'tags' }
 	];

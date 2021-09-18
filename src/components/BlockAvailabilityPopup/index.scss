@@ -18,6 +18,10 @@
         border-bottom: 1px solid $grey_3;
     }
 
+    .hide {
+        display: none;
+    }
+
     .blockNumber {
         color: $grey_6;
         font-weight: 700;
