@@ -12,12 +12,12 @@ interface Props {
     setOpen: (status: boolean) => void;
     isOpen: boolean;
     units: any[];
-    // isAccepted?: boolean;
+    isAccepted?: boolean;
 }
 
 const BlockAvailabilityPopup = (props:Props) => {
-    const {isOpen, setOpen, units} = props;
-    console.log(units);
+    const {isOpen, setOpen, units, isAccepted} = props;
+    console.log(isAccepted);
 	return (
         <>
             <Sidebar

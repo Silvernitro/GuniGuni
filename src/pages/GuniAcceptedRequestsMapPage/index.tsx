@@ -49,7 +49,7 @@ const GuniAcceptedRequestsMapPage = (props:any) => {
 						}}
 					/>
 				</div>
-				{isLoading ? <Loader active/>: <Map blocks = {blocks}/>}
+				{isLoading ? <Loader active/>: <Map isAccepted blocks = {blocks}/>}
 			</div>
 		</div>
 	);
