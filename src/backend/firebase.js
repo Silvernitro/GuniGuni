@@ -40,7 +40,9 @@ const repackagedRequestResponse = (arr) => {
 
 		const newReq = {
 			unitNumber: req.unitNum,
-			timeSlots: req.timeSlots.map((start) => toTimeSlot(start)),
+			timeSlots: req[
+				req.status === 'Accepted' ? 'selectedTimeSlot' : 'timeSlot'
+			].map((start) => toTimeSlot(start)),
 			garangGuniId: req.garangGuniId,
 			requestId: req.id
 		};
@@ -66,6 +68,7 @@ const validateConsumerRequest = (request, options) => {
 	let validation = true;
 	if (options) {
 		Object.entries(options).forEach(([key, value]) => {
+			if (Array.isArray(request[key])) return;
 			if (value !== request[key]) {
 				validation = false;
 			}
@@ -98,7 +101,7 @@ class Backend {
 		}
 	};
 
-	static getConsumerRequests = async (options) => {
+	static getConsumerRequests = async (options, reformat) => {
 		const consumerRequests = [];
 		try {
 			const allRequests = await getDocs(collection(db, 'request'));
@@ -113,10 +116,10 @@ class Backend {
 			console.error('Error getting document: ', error);
 		}
 
-		if (options && 'consumerId' in options) {
-			return consumerRequests;
+		if (reformat) {
+			return repackagedRequestResponse(consumerRequests);
 		}
-		return repackagedRequestResponse(consumerRequests);
+		return consumerRequests;
 	};
 
 	static updateConsumerRequest = async (requestId, payload) => {
@@ -136,6 +139,22 @@ class Backend {
 		} catch (error) {
 			console.error('Error deleting document: ', error);
 			return false;
+		}
+	};
+
+	static getNumberOfRequest = async (dates, status) => {
+		const newDates = dates.map((date) => {
+			return new Date(date).toDateString();
+		});
+		try {
+			const allRequest = await this.getConsumerRequests({ status });
+			const newResult = allRequest.filter((req) => {
+				return newDates.includes(req.date);
+			});
+			return newResult.length;
+		} catch (error) {
+			console.error('Error deleting document: ', error);
+			return [];
 		}
 	};
 }
