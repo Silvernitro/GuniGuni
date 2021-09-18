@@ -7,14 +7,21 @@ import DayCard from '../../components/DayCard';
 import Frog from '../../Assets/Frog.png';
 
 const GuniDiscoverPage = () => {
-	
+	const date = new Date("08/09/2012");
+	const fullDate = date.toLocaleString('default', {day:'numeric', month: 'short'});
+	const day = date.toLocaleString('default', {weekday:'short'});
+
 	return (
-		<div className={`${styles.GuniDiscoverPage} page-background`}>
+		<div className={`${styles.homePage} page-container`}>
 			<Nav/>
-			<DayCard
-				label =" hi"
-				iconImageLink={Frog}
+			<div className="page-background">
+				<DayCard
+					title={day}
+					label = {fullDate}
+					iconImageLink={Frog}
+					desc="60 Requests"
 				/>
+			</div>
 		</div>
 	);
 };

@@ -4,9 +4,9 @@
 	color: $prim_white;
 	background: $green_0;
 	border: 1px solid $grey_3;
+	box-shadow: $box-shadow-1;
 	border-radius: 7px;
-	width: 25%;
-	min-width: 20rem;
+	width: 200px;
 	text-align: center;
 	padding: 3rem 0;
 
@@ -22,22 +22,31 @@
 	}
 }
 
-.statsCount {
-	font-size: $fontsize_title_54;
-	color: inherit;
-	font-weight: fontweight_bold;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	span {
-		font-size: 14px;
-		margin-left: 5px;
+.imageBox {
+	width: 200px;
+	position: relative;
+
+	img {
+		object-fit: contain;
+		width: 140px;
+	}
+
+	h3 {
+		font-size: $fontsize_subtitle_32 !important;
+		color: $prim_dark_1;
+		position: absolute;
+		top: 100px;
+		left: 65px;
 	}
 }
 
-.statsMessage {
+.label {
+	font-size: $fontsize_subtitle_24;
+	color: $prim_dark_2;
+}
+
+.desc {
 	font-size: $fontsize_content_14;
-	font-weight: fontweight_regular;
-	color: inherit;
+	color: $prim_dark_2;
 	width: 100%;
 }

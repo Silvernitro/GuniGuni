@@ -4,6 +4,10 @@
 	height: 100vh;
 	padding-left: 10rem;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	@media only screen and(max-width: 1080px) {
 		width: 100vw;
 		padding: 0;
@@ -14,15 +18,15 @@
 .page-background {
 	background-color: white;
 	height: 90%;
-	width: 100%;
-	margin: 20px;
-	margin-top: 45px;
-	padding: 20px;
+	width: 90%;
+	margin: 0 20px;
+	margin-top: 30px;
+	padding: 0 20px;
 	border-radius: 12px;
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	// display: flex;
+	// flex-direction: column;
+	// align-items: center;
 }
 
 .navigation-container {
