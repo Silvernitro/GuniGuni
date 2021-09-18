@@ -21,6 +21,7 @@ const Nav = () => {
         <>
             <button onClick={() => setVisible(true)} className={styles.navButton}> 
                 <img src={NavIcon} className={styles.navIcon} alt="icon"/> </button>
+            <p className={styles.guniguni}> GUNI GUNI</p>
             <Sidebar
                 className={styles.nav}
               animation='overlay'
