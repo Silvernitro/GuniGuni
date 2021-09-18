@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon, Sidebar } from 'semantic-ui-react';
+import { Role } from '../../pages/LoginPage';
 
 /* Styles */
 import styles from './index.module.scss';
@@ -7,12 +8,16 @@ import NavIcon from '../../Assets/nav.svg';
 
 const Nav = () => {
 	const [visible, setVisible] = React.useState(false);
-	const options: any[] = [
+	const guniOptions: any[] = [
 		{ title: 'Home', to: '/', icon: 'home' },
 		{ title: 'Login', to: '/login', icon: 'user' },
 		{ title: 'Explore', to: '/guni/discover', icon: 'search' },
 		{ title: 'Accepted', to: '/guni/accepted', icon: 'tags' }
 	];
+
+	const loggedInRole = localStorage.getItem('role');
+	const options = loggedInRole === Role.Recycler ? [] : guniOptions;
+
 	return (
 		<>
 			<button onClick={() => setVisible(true)} className={styles.navButton}>
@@ -38,6 +43,16 @@ const Nav = () => {
 							</a>
 						);
 					})}
+					{!!loggedInRole && (
+						<a
+							className={styles.navOption}
+							href={'/'}
+							onClick={() => localStorage.removeItem('role')}
+						>
+							<Icon name="log out" className={styles.icon} />
+							<p className={styles.navText}> Logout </p>
+						</a>
+					)}
 				</div>
 			</Sidebar>
 		</>

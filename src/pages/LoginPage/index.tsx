@@ -4,9 +4,9 @@ import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 import Button from '../../components/Button';
 
-enum Role {
-	Guni,
-	Recycler
+export enum Role {
+	Guni = 'guni',
+	Recycler = 'recycler'
 }
 
 const LoginPage = () => {
@@ -21,6 +21,13 @@ const LoginPage = () => {
 		if (loginRef.current) {
 			loginRef.current.scrollIntoView({ behavior: 'smooth' });
 		}
+	};
+
+	const login = () => {
+		if (role) {
+			localStorage.setItem('role', role as string);
+		}
+		history.push(role === Role.Guni ? '/guni/discover' : '/consumer-dashboard');
 	};
 
 	return (
@@ -81,11 +88,7 @@ const LoginPage = () => {
 					size="medium"
 					title="Login"
 					className={styles.button}
-					onClick={() =>
-						history.push(
-							role === Role.Guni ? '/guni/discover' : '/consumer-dashboard'
-						)
-					}
+					onClick={login}
 				/>
 			</div>
 		</div>
