@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import Nav from '../../components/Nav';
 import Button from '../../components/Button';
 import ExpandableCard from '../../components/ExpandableCard';
 import PickUpCreationModal from '../../components/PickUpCreationModal';
+import Backend from '../../backend/firebase';
 
 export enum RequestStatus {
 	Accepted = 'Accepted',
@@ -26,34 +27,18 @@ export const timeSlotMap: { [index: number]: string } = {
 
 const ConsumerDashboardPage = () => {
 	const [isModalOpen, setModalOpen] = useState(false);
+	const [requests, setRequests] = useState<IRequest[]>([]);
 
-	const dummyData: IRequest[] = [
-		{
-			date: '21st sept 2021',
-			timeSlots: [9, 12, 15],
-			selectedTimeSlot: 9,
-			status: RequestStatus.Accepted,
-			location: '123 bedok rd Block 123123 Singapore 123742'
-		},
-		{
-			date: '21st sept 2021',
-			timeSlots: [9, 12, 15],
-			status: RequestStatus.NotAccepted,
-			location: '123 bedok rd Block 123123 Singapore 123742'
-		},
-		{
-			date: '21st sept 2021',
-			timeSlots: [9, 12, 15],
-			status: RequestStatus.NotAccepted,
-			location: '123 bedok rd Block 123123 Singapore 123742'
-		},
-		{
-			date: '21st sept 2021',
-			timeSlots: [9, 12, 15],
-			status: RequestStatus.NotAccepted,
-			location: '123 bedok rd Block 123123 Singapore 123742'
-		}
-	];
+	useEffect(() => {
+		(async () => {
+			setRequests(await fetchData());
+		})();
+	}, []);
+
+	const fetchData = async () => {
+		const requests = await Backend.getConsumerRequests('123');
+		return requests as IRequest[];
+	};
 
 	const renderCard = ({
 		date,
@@ -71,7 +56,7 @@ const ConsumerDashboardPage = () => {
 					<p>{timeSlotMap[selectedTimeSlot]}</p>
 				)}
 				<p className={isAccepted ? styles.accepted : styles.notAccepted}>
-					{status}
+					{isAccepted ? 'Accepted' : 'Not Accepted'}
 				</p>
 			</div>
 		);
@@ -115,7 +100,7 @@ const ConsumerDashboardPage = () => {
 					className={styles.addButton}
 					onClick={() => setModalOpen(true)}
 				/>
-				{dummyData.map(renderCard)}
+				{requests.map(renderCard)}
 			</div>
 			<PickUpCreationModal
 				open={isModalOpen}
