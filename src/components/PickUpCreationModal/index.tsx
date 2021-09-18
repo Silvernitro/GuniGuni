@@ -8,7 +8,7 @@ import PlacesAutocomplete from './PlacesAutocomplete';
 import Dates from './Dates';
 import TimeSlots from './TimeSlots';
 
-import { Backend } from '../../firebase';
+import Backend from '../../backend/firebase';
 import styles from './index.module.scss';
 
 interface IPickUpCreationModal {

@@ -44,7 +44,7 @@ const GuniDiscoverPage = (props:any) => {
 		<div className={`${styles.homePage} page-container`}>
 			<Nav/>
 			<div className={`page-background`}>
-				<h1 className={styles.title}> Requests near you </h1>
+				<h1 className={styles.title}> Requests Near You </h1>
 				<div className={styles.requestDates}>
 				{days.map((day:any) => {
 					return (

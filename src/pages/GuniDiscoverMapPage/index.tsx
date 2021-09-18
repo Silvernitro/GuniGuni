@@ -8,6 +8,7 @@ import Button from '../../components/Button';
 
 const GuniDiscoverMapPage = (props:any) => {
 	const displayDate = props.match.params.date;
+	const [currentDate, setCurrentDate] = React.useState<string>(displayDate);
 	const dates = []
 	const currDate = new Date();
 	for (let i = 1; i <= 5; i++) {
@@ -60,7 +61,13 @@ const GuniDiscoverMapPage = (props:any) => {
 			<div className={`page-background`}>
 				<div className={styles.headerRow}>
 					<Button type='secondary' size='small' color='green' title='Back' to='/guni/discover'/>
-					<DateDropdown dates={dates} placeholder={displayDate}/>
+					<p> discover </p>
+					<DateDropdown 
+						dates={dates} 
+						placeholder={currentDate} 
+						current={currentDate} 
+						onChange={(selected:any) => (setCurrentDate(selected))}
+					/>
 				</div>
 				<Map blocks = {BLKS}/>
 			</div>

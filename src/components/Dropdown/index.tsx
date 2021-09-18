@@ -5,11 +5,13 @@ import './index.scss';
 interface Props {
 	dates: {key: number, text: string, value: number}[];
 	placeholder: string;
+	current: string;
+	onChange: any;
 }
 
 const DateDropdown = (props: Props) => {
 
-	const {dates, placeholder} = props;
+	const {dates, placeholder, current, onChange} = props;
 	return (
 		<Dropdown
 			search
@@ -18,6 +20,8 @@ const DateDropdown = (props: Props) => {
 			options={dates}
 			placeholder={placeholder}
 			scrolling
+			value={current}
+			onChange={onChange}
       />
   	)
 }
