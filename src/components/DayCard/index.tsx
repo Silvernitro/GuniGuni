@@ -14,7 +14,7 @@ const StatsCard: React.FC<Props> = (props) => {
 	const { label, iconImageLink, title, desc } = props;
 
 	return (
-		<div className={`${styles.statsCard}`}>
+		<div className={`${styles.dayCard}`}>
 			<div className={styles.imageBox}>
 				<img
 					src={iconImageLink}
