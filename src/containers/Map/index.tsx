@@ -10,35 +10,51 @@ const SG = {
     lat: 1.3521,
     lng: 103.8198
 }
-const Map = () => {
-    const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
-    let map = <div id="map"/>;
 
+interface Props {
+  blocks: any
+}
+const Map = (props:Props) => {
+    const { blocks } = props;
+    const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
+    const [displayedBlockRequests, setDisplayedBlockRequests] = React.useState<any[]>([])
+    const handleClick = (index:number) => {
+      setDisplayedBlockRequests(blocks[index].requests);
+      setPopupOpen(true);
+    }
+
+    let map = <div id="map"/>;
     function initMap() {
-    // @ts-ignore
+      // @ts-ignore
       map = new window.google.maps.Map(document.getElementById("map"), {
         center: { lat: SG.lat, lng: SG.lng },
         zoom: 11,
       });
 
-      const marker = new window.google.maps.Marker({
-        position: SG,
-        map,
-        title: "Hello World!",
-      });
-      marker.addListener("click", () => {
-        setPopupOpen(true);
-      });
-      marker.setMap(map);
+      blocks.map((blk:any, index: number) => {
+        console.log("lel");
+        // @ts-ignore
+        const marker = new window.google.maps.Marker({
+          position: blk.latLng,
+          map,
+          title: blk.address,
+        });
+        marker.addListener("click", () => {
+          handleClick(index);
+        });
+        marker.setMap(map);
+        return 0;
+      })
     }
 
     React.useEffect(() => {
         initMap();
     }, [])
+
 	return (
         <div>
             {map}
-            <BlockAvailabilityPopup isOpen={isPopupOpen} setOpen = {setPopupOpen}/>
+            <BlockAvailabilityPopup units={displayedBlockRequests} isOpen={isPopupOpen} setOpen = {setPopupOpen}/>
         </div>
 	);
 };

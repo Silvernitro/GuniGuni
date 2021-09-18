@@ -8,7 +8,7 @@ const BaseRouter = () => (
 	<Switch>
 		<Route exact path="/" component={HomePage} />
 		<Route exact path="/guni/discover" component={GuniDiscoverPage} />
-		<Route exact path="/guni/discover/date" component={GuniDiscoverMapPage} />
+		<Route exact path="/guni/discover/:date" component={GuniDiscoverMapPage} />
 	</Switch>
 );
 
