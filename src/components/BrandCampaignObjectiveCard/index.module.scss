@@ -1,0 +1,47 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+.campaignObjectiveCard {
+	height: 30rem;
+	width: 20rem;
+	margin-right: 1rem;
+	background-color: $prim_white;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	&:hover {
+		cursor: pointer;
+		opacity: 0.9;
+	}
+}
+
+.objectiveImage {
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	padding: 2rem;
+	width: 20rem;
+	height: 24rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	object-position: center;
+	object-fit: contain;
+}
+
+.titleWrapper {
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: $teal_9;
+	height: 6rem;
+	padding: 2rem;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $prim_white;
+}
+
+.title {
+	color: $prim_white !important;
+}

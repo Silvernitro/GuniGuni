@@ -1,0 +1,10 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+#brandDashboard {
+	height: 80%;
+
+	h1 {
+		color: var(--light-teal);
+	}
+}

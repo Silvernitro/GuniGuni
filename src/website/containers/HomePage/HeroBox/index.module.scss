@@ -1,0 +1,28 @@
+@use '../../../../styles/utils.scss';
+@import '../../../../styles/guidelines.scss';
+
+.heroBox {
+	width: 100%;
+	margin-top: 5rem !important;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.title {
+	font-size: $fontsize_subtitle_32;
+	margin-bottom: 3rem;
+}
+
+.desc {
+	font-size: $fontsize_subtitle_24;
+}
+
+.ctaButtons {
+	margin-top: 2rem;
+	width: 27rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}

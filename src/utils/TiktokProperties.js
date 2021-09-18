@@ -1,0 +1,13 @@
+export const TIKTOK_ID = 1;
+export const TIKTOK_HANDLE = 2;
+export const NICKNAME = 3;
+export const AVATAR_LARGE = 4;
+export const AVATAR_MED = 5;
+export const AVATAR_THUMB = 6;
+export const SIGNATURE = 7;
+export const VERIFIED = 8;
+export const BIO = 9;
+export const FOLLOWERS_COUNT = 10;
+export const FOLLOWING_COUNT = 11;
+export const HEART_COUNT = 12;
+export const VIDEO_COUNT = 13;

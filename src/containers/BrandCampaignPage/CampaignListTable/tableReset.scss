@@ -1,0 +1,130 @@
+@import '../../../styles/guidelines.scss';
+
+/* stylelint-disable */
+#campaignTable {
+	/* Generic table content */
+	.rs-table-cell-content {
+		font-family: 'Open Sans', sans-serif;
+		color: $prim_dark_2;
+		font-size: 12px !important;
+		padding: 0 !important;
+	}
+
+	/* Hide the default sort icons */
+	.rs-table-cell-header-sort-wrapper {
+		display: none !important;
+		visibility: none;
+	}
+
+	/* Customize the horizontal scrollbar */
+	.rs-table-scrollbar-pressed.rs-table-scrollbar-horizontal:hover,
+	.rs-table-scrollbar-horizontal:hover {
+		transform: none !important;
+		background: $grey_3 !important;
+	}
+
+	/* Customize the vertical scrollbar */
+	.rs-table-scrollbar-pressed.rs-table-scrollbar-vertical:hover,
+	.rs-table-scrollbar-vertical:hover {
+		transform: none !important;
+		background: $grey_3 !important;
+	}
+
+	/* General Scroll bar handle color */
+	div.rs-table-scrollbar-handle {
+		color: red !important;
+		position: relative !important;
+		bottom: 15px;
+	}
+
+	/* Generic table header */
+	.rs-table-cell-header {
+		.rs-table-cell-content {
+			color: $prim_dark_2;
+			font-size: 12px !important;
+			font-weight: 600 !important;
+		}
+	}
+
+	// header section
+	.rs-table-row-header {
+		border-radius: 3px;
+	}
+
+	// body section
+	.rs-table-body-row-wrapper {
+		.rs-table-body-wheel-area {
+			margin-top: 1rem;
+			background: #fff;
+			// should be rowheight - 10px
+			.rs-table-row {
+				border-radius: 3px;
+
+				&:nth-child(2n) {
+					background-color: #fff !important;
+
+					.rs-table-cell-content {
+						color: $prim_dark_2 !important;
+						background-color: #fff !important;
+					}
+				}
+
+				&:nth-child(2n + 1) {
+					background-color: #f9f9fa !important;
+
+					.rs-table-cell-content {
+						color: $prim_dark_2 !important;
+						background-color: #f9f9fa !important;
+					}
+				}
+			}
+		}
+	}
+
+	// scrollbar
+	div[role='scrollbar'] {
+		background: #e6e6e6;
+		border-radius: 4px;
+		opacity: 1;
+		max-width: 90vw !important;
+		margin-left: auto !important;
+
+		&.rs-table-scrollbar.rs-table-scrollbar-pressed {
+			opacity: 1 !important;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		> .rs-table-scrollbar-handle {
+			background-color: #95a1ac !important;
+			opacity: 1 !important;
+		}
+	}
+
+	.rs-table-scrollbar-horizontal {
+		height: 6px;
+
+		> .rs-table-scrollbar-handle {
+			height: 6px;
+			max-width: 100% !important;
+		}
+	}
+
+	.rs-table-scrollbar-vertical {
+		width: 6px;
+
+		> .rs-table-scrollbar-handle {
+			width: 6px;
+			max-width: 100% !important;
+		}
+	}
+
+	.iconButtonResetGlobal {
+		i.chevron.down.icon {
+			font-size: 10px !important;
+			margin-top: 4px;
+		}
+	}
+}

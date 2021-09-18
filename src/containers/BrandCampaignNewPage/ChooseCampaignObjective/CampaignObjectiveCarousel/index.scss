@@ -1,0 +1,41 @@
+@import '../../../../styles/guidelines.scss';
+
+.carouselWrapper {
+	margin-top: 5px;
+	display: flex;
+	justify-content: flex-start;
+
+	.objectiveCard {
+		border: 4px solid transparent;
+		&__selected {
+			border: 4px solid $yellow_9;
+		}
+	}
+
+}
+
+.statItem {
+	list-style-type: none;
+}
+
+.carouselArrowGroup {
+	.leftArrow {
+		background: none;
+		border: none;
+		left: 10px;
+		position: absolute;
+		z-index: 1000;
+	}
+
+	.rightArrow {
+		background: none;
+		border: none;
+		right: 10px;
+		position: absolute;
+		z-index: 1000;
+	}
+
+	.disable {
+		display: none;
+	}
+}

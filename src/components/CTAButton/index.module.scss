@@ -1,0 +1,43 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+.ctaButton {
+	font-family: 'Poppins', sans-serif;
+	font-size: $fontsize_content_16;
+	font-weight: $fontweight_semibold;
+	box-shadow: $box-shadow-1;
+	border-radius: 7px;
+}
+
+.brand {
+	color: $teal_8;
+	background-color: $teal_8;
+}
+
+.creator {
+	color: $yellow_8;
+	background-color: $yellow_8;
+}
+
+.primary {
+	color: $prim_white !important;
+}
+
+.secondary {
+	background: none !important;
+	border: 1px solid !important;
+	box-shadow: none !important;
+}
+
+.small {
+	padding: 0.5rem 2rem;
+	font-size: $fontsize_content_14 !important;
+}
+
+.medium {
+	padding: 1rem 3rem;
+}
+
+.large {
+	padding: 1.5rem 4rem;
+}

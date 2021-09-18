@@ -1,0 +1,11 @@
+@use '../../styles/utils.scss';
+@import '../../styles/guidelines.scss';
+
+#brandReports {
+	@include utils.flex(column, center, center);
+
+	height: 70%;
+	h1 {
+		color: var(--light-teal);
+	}
+}

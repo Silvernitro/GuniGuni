@@ -1,0 +1,93 @@
+@use '../../../styles/utils.scss';
+@import '../../../styles/guidelines.scss';
+
+#register {
+	margin-top: 13vh;
+	height: 100%;
+	.heroBG {
+		@include utils.heroBG;
+	}
+
+	.registerFormContainer {
+		position: relative;
+		@include utils.flex(column, flex-start, center);
+
+		.registerFormShadowContainer {
+			@include utils.boxShadow;
+
+			.registerForm {
+				@include utils.flex(column, center, center);
+
+				width: min(500px, 40vw);
+				height: 60vh;
+				background-color: white;
+				border: 1px solid #d5e0d5;
+				border-bottom: none;
+
+				.errorMessage {
+					margin-top: 10px;
+					color: var(--red);
+					font-size: 14px;
+				}
+
+				.registerTextBox {
+					position: relative;
+					width: 500px;
+					@include utils.flex(column, center, center);
+
+					margin-top: 20px;
+
+					.arrow {
+						position: absolute;
+						width: 100px;
+						right: 40px;
+						bottom: -100px;
+					}
+
+					h2 {
+						font-weight: 300;
+					}
+				}
+
+				.iAmText {
+					text-align: center;
+					margin-top: 70px;
+					margin-bottom: 15px;
+					font-weight: 300;
+				}
+
+				.singleButton {
+					margin-right: 10px;
+				}
+			}
+
+			.loginRedirect {
+				@include utils.flex(column, center, center);
+
+				width: min(500px, 40vw);
+				height: 20vh;
+				border: 1px solid #d5e0d5;
+				background-color: white;
+
+				> p {
+					text-align: center;
+					width: 100%;
+					margin-bottom: 15px;
+				}
+
+				> p::before,
+				> p::after {
+					margin-left: 20px;
+					margin-right: 20px;
+					background-color: #8f8e8e;
+					content: '';
+					display: inline-block;
+					height: 1px;
+					position: relative;
+					vertical-align: middle;
+					width: 20%;
+				}
+			}
+		}
+	}
+}

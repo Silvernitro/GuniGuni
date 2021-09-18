@@ -1,0 +1,7 @@
+@use '../../../styles/utils.scss';
+@import '../../../styles/guidelines.scss';
+
+.homePage {
+	min-height: 100vh;
+	background-color: $teal_1;
+}

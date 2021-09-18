@@ -1,13 +1,93 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: 'Lemon Milk';
+    src: local('MyFont'), url(./Assets/lemon_milk/LEMONMILK-Regular.otf) format('woff2');
+
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+  }
+
+:root {
+    --teal: rgb(76,175,172);
+    --light-teal: rgb(69, 194, 192);
+    --yellow: rgb(240, 205, 68);
+    --light-yellow: rgb(246, 210, 50);
+    --red: rgb(233, 68, 76);
+    --purple: rgb(127, 60, 177);
+    --dark-purple: rgb(68, 61, 177);
+    --green: rgb(50,205,50);
+    --black: rgb(20, 20, 20);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    margin: 0;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+}
+
+h1:link, h2:link, h3:link, a:link {
+    text-decoration: none;
+}
+
+p, li {
+    font-family: Open Sans, sans-serif;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.bold {
+    font-weight: bold;
+}
+.light {
+    font-weight: 300;
+}
+.black {
+    color: black;
+}
+
+.red {
+    color: var(--red);
+}
+
+.green {
+    color: var(--green);
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+/* Pre-loading images. */
+body::after {
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; 
+    content:
+    url("./Assets/hashtap_homepage_BG.png") 
+    url("./Assets/hashtap_homepage_iphone.png") 
+    url("./Assets/hashtap_homepage_arrow.png") 
+    url("./Assets/hashtap_creator_signup_bg.png")
+    url("./Assets/hashtap_brand_signup_bg.png")
+    url("./Assets/hashtap_creator_signup_arrow.png");
+ }
