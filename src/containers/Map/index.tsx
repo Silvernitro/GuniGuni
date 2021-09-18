@@ -7,39 +7,40 @@ import './index.scss';
 import BlockAvailabilityPopup from '../../components/BlockAvailabilityPopup';
 
 const SG = {
-    lat: 1.3521,
-    lng: 103.8198
-}
+	lat: 1.3521,
+	lng: 103.8198
+};
 const Map = () => {
-    const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
-    let map = <div id="map"/>;
+	const [isPopupOpen, setPopupOpen] = React.useState<boolean>(false);
+	let map = <div id="map" />;
 
-    function initMap() {
-    // @ts-ignore
-      map = new window.google.maps.Map(document.getElementById("map"), {
-        center: { lat: SG.lat, lng: SG.lng },
-        zoom: 11,
-      });
+	function initMap() {
+		// @ts-ignore
+		map = new window.google.maps.Map(document.getElementById('map'), {
+			center: { lat: SG.lat, lng: SG.lng },
+			zoom: 11
+		});
 
-      const marker = new window.google.maps.Marker({
-        position: SG,
-        map,
-        title: "Hello World!",
-      });
-      marker.addListener("click", () => {
-        setPopupOpen(true);
-      });
-      marker.setMap(map);
-    }
+		// @ts-ignore
+		const marker = new window.google.maps.Marker({
+			position: SG,
+			map,
+			title: 'Hello World!'
+		});
+		marker.addListener('click', () => {
+			setPopupOpen(true);
+		});
+		marker.setMap(map);
+	}
 
-    React.useEffect(() => {
-        initMap();
-    }, [])
+	React.useEffect(() => {
+		initMap();
+	}, []);
 	return (
-        <div>
-            {map}
-            <BlockAvailabilityPopup isOpen={isPopupOpen} setOpen = {setPopupOpen}/>
-        </div>
+		<div>
+			{map}
+			<BlockAvailabilityPopup isOpen={isPopupOpen} setOpen={setPopupOpen} />
+		</div>
 	);
 };
 

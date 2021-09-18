@@ -5,24 +5,24 @@ import Nav from '../../components/Nav';
 import DateDropdown from '../../components/Dropdown';
 import Button from '../../components/Button';
 
-
 const GuniDiscoverMapPage = () => {
-	const dates = [
-		"23 Aug", "24 Aug", "25 Aug", "26 Aug"
-	]
+	const dates = ['23 Aug', '24 Aug', '25 Aug', '26 Aug'];
 	// const date = new Date("08/09/2012");
 	// const fullDate = date.toLocaleString('default', {day:'numeric', month: 'short'});
 	// const day = date.toLocaleString('default', {weekday:'short'});
 
 	return (
 		<div className={`${styles.homePage} page-container`}>
-			<Nav/>
+			<Nav />
 			<div className={`page-background`}>
 				<div className={styles.headerRow}>
-					<Button type='secondary' size='small' color='green' title='Back'/>
-					<DateDropdown dates={dates}/>
+					<Button type="secondary" size="small" color="green" title="Back" />
+					<DateDropdown
+						// @ts-ignore
+						dates={dates}
+					/>
 				</div>
-				<Map/>
+				<Map />
 			</div>
 		</div>
 	);
