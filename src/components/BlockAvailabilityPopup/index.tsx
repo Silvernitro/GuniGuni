@@ -39,7 +39,7 @@ const BlockAvailabilityPopup = (props:Props) => {
                             const timeNumber = Number.parseInt(time.substring(0, time.length - 1));
                             const timeSubmission = (add12 && timeNumber !== 12) ? timeNumber + 12 : timeNumber;
                             Backend.updateConsumerRequest(requestId, {status: "Accepted", 
-                                selectedTimeSlot: timeSubmission});
+                                selectedTimeSlot: [timeSubmission]});
                             setHide(true);
                         }
                         return (

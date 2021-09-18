@@ -21,7 +21,7 @@ const DateDropdown = (props: Props) => {
 			placeholder={placeholder}
 			scrolling
 			value={current}
-			onChange={(e:any, data:any) => onChange(e, data)}
+			onChange={(e:any, data:any) => onChange(dates[data.value - 1].text)}
       />
   	)
 }

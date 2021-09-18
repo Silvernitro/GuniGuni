@@ -43,7 +43,7 @@ const GuniDiscoverMapPage = (props:any) => {
 						dates={dates} 
 						placeholder={currentDate} 
 						current={currentDate} 
-						onChange={(selected:any) => (setCurrentDate(selected))}
+						onChange={(data:string) => (setCurrentDate(data))}
 					/>
 				</div>
 				{isLoading ? <Loader active/>: <Map blocks = {blocks}/>}
