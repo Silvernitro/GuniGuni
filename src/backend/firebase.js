@@ -79,7 +79,7 @@ const validateConsumerRequest = (request, options) => {
 
 class Backend {
 	static createConsumerRequest = async (payload) => {
-		let newPayload;
+		let newPayload = payload;
 		if (
 			!payload.coordinate.lat ||
 			!payload.coordinate.lng ||
